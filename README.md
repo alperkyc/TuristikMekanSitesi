@@ -1,6 +1,25 @@
 # TuristikMekanSitesi
 Php Symfony ile yapmış olduğum user ve admin yönetim panelli Turistik Mekan gösterim ve paylaşım web sayfasıdır.
 
+<h2>Özellikler</h2>
+  <ul>
+      <li>Admin Kullanıcı Yönetim Paneli</li>
+      <li>Admin Mekan Yönetim Paneli</li>
+      <li>Admin Yorum Yönetim Paneli</li>
+     <li>Admin Site Ayarları Yönetim Paneli</li>
+     <li>Login Paneli</li>
+     <li>Register Paneli</li>
+     <li>Kullanıcı Yorum Yapma</li>
+    <li>Kullanıcı Mekan Ekleme</li>
+    <li>Iletişim Formu Sonrası Mail Gönderim</li>
+    <li>Image Gallery</li>
+  
+  
+     <li>Kola</li>
+   </ul>
+
+
+
 
 <h2>Anasayfa Görünüm</h2>
 <img src="https://i.hizliresim.com/p5Zn7J.png" />
