@@ -15,7 +15,6 @@ Php Symfony ile yapmış olduğum user ve admin yönetim panelli Turistik Mekan 
     <li>Image Gallery</li>
   
   
-     <li>Kola</li>
    </ul>
 
 
