@@ -1,0 +1,63 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{{data[0].title}}{% endblock %}
+{% block keywords %}{{data[0].keywords}}{% endblock %}
+{% block description %}{{data[0].description}}{% endblock %}
+
+
+            {% block body %}
+                {{ include('home/aboutus2.html.twig') }}
+                <div class="custom-breadcrumns border-bottom">
+                    <div class="container">
+                        <a href="#">Home</a>
+                        <span class="mx-3 icon-keyboard_arrow_right"></span>
+                        <span class="current">About Us</span>
+                    </div>
+                </div>
+
+                <div class="container pt-5 mb-5">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2 class="section-title-underline">
+                                <span>Bizi Tanıyın</span>
+
+                            </h2>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <p>{{ data[0].aboutus | raw}}</p>
+                        </div>
+
+                    </div>
+                </div> -->
+
+               {# <div class="site-section">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                <img src="{{ asset('assets') }}/images/course_4.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="col-lg-5 ml-auto align-self-center">
+                                <h2 class="section-title-underline mb-5">
+                                    <span>Why Academics Works</span>
+                                </h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque dolore libero corrupti! Itaque, delectus?</p>
+                                <p>Modi sit dolor repellat esse! Sed necessitatibus itaque libero odit placeat nesciunt, voluptatum totam facere.</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+                                <img src="{{ asset('assets') }}/images/course_5.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="col-lg-5 mr-auto align-self-center order-2 order-lg-1">
+                                <h2 class="section-title-underline mb-5">
+                                    <span>Personalized Learning</span>
+                                </h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque dolore libero corrupti! Itaque, delectus?</p>
+                                <p>Modi sit dolor repellat esse! Sed necessitatibus itaque libero odit placeat nesciunt, voluptatum totam facere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>#}
+
+            {% endblock %}

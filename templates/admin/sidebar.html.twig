@@ -1,0 +1,86 @@
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+<!-- menu profile quick info -->
+
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="{{ path('admin_admin') }}" class="site_title"><i class="fa fa-paw"></i> <span>NereyeGitmeliyim</span></a>
+        </div>
+
+        <div class="profile clearfix">
+    <div class="profile_pic">
+        <img src="{{ asset('uploads/images/'~ app.user.image) }}" alt="..." class="img-circle profile_img">
+    </div>
+    <div class="profile_info">
+        <span>Hoşgeldin,</span>
+        <h2>{{ app.user.name }} {{ app.user.surname }}</h2>
+        <br>
+        <a href="{{ path('app_logout') }}" class="btn-primary"> Logout</a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!-- /menu profile quick info -->
+
+<br />
+
+<!-- sidebar menu -->
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <h3>General</h3>
+        <ul class="nav side-menu">
+            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="index2.html">Dashboard2</a></li>
+                    <li><a href="index3.html">Dashboard3</a></li>
+                </ul>
+            </li>
+            <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="form.html">General Form</a></li>
+                    <li><a href="form_advanced.html">Advanced Components</a></li>
+                    <li><a href="form_validation.html">Form Validation</a></li>
+                    <li><a href="form_wizards.html">Form Wizard</a></li>
+                    <li><a href="form_upload.html">Form Upload</a></li>
+                    <li><a href="form_buttons.html">Form Buttons</a></li>
+                </ul>
+            </li>
+
+
+
+            <li><a href="{{ path('setting_index') }}"><i class="fa fa-bars"></i> Site Ayarlar <span class="label label-success pull-right">New</span></a></li>
+            <li><a href="{{ path('category_index') }}"><i class="fa fa-bars"></i> Kategoriler <span class="label label-success pull-right">New</span></a></li>
+            <li><a href="{{ path('admin_place_index') }}"><i class="fa fa-bars"></i> Turistik Mekanlar <span class="label label-success pull-right">New</span></a></li>
+            <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-bars"></i> Users <span class="label label-success pull-right">New</span></a></li>
+            <li><a href="/admin/messages"><i class="fa fa-envelope"></i>Contact From Messages</a></li>
+            <li><a href="/admin/comment"><i class="fa fa-comment"></i>Yorumlar</a></li>
+        </ul>
+    </div>
+    <div class="menu_section">
+
+        <ul class="nav side-menu">
+
+
+
+
+        </ul>
+    </div>
+
+</div>
+
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</div>

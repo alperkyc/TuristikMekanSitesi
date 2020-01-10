@@ -1,0 +1,106 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h1>Setting index</h1>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_content">
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    {#<th>Keywords</th>
+                                    <th>Description</th>#}
+                                    <th>Company</th>
+                                    {#<th>Adress</th>
+                                    <th>Phone</th>
+                                    <th>Fax</th>#}
+                                    <th>Email</th>
+                                    {#<th>Smtpserver</th>
+                                    <th>Smtpemail</th>
+                                    <th>Smtppassword</th>
+                                    <th>Smtpport</th>
+                                    <th>Facebook</th>
+                                    <th>Instagram</th>
+                                    <th>Twitter</th>
+                                    <th>Aboutus</th>
+                                    <th>Contact</th>
+                                    <th>Reference</th>#}
+                                    <th>Status</th>
+                                    <th>actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for setting in settings %}
+                                    <tr>
+                                        <td>{{ setting.id }}</td>
+                                        <td>{{ setting.title }}</td>
+                                        {#<td>{{ setting.keywords }}</td>
+                                        <td>{{ setting.description }}</td>#}
+                                        <td>{{ setting.company }}</td>
+                                        {#<td>{{ setting.adress }}</td>
+                                        <td>{{ setting.phone }}</td>
+                                        <td>{{ setting.fax }}</td>#}
+                                        <td>{{ setting.email }}</td>
+                                       {# <td>{{ setting.smtpserver }}</td>
+                                        <td>{{ setting.smtpemail }}</td>
+                                        <td>{{ setting.smtppassword }}</td>
+                                        <td>{{ setting.smtpport }}</td>
+                                        <td>{{ setting.facebook }}</td>
+                                        <td>{{ setting.instagram }}</td>
+                                        <td>{{ setting.twitter }}</td>
+                                        <td>{{ setting.aboutus }}</td>
+                                        <td>{{ setting.contact }}</td>
+                                        <td>{{ setting.reference }}</td>#}
+                                        <td>{{ setting.status }}</td>
+                                        <td>
+                                            <a href="{{ path('setting_show', {'id': setting.id}) }}" class="btn btn-primary">show</a>
+                                            <a href="{{ path('setting_edit', {'id': setting.id}) }}" class="btn btn-success">edit</a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="21">no records found</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('setting_new') }}" class="btn btn-success">Create new</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+
+
+{% endblock %}

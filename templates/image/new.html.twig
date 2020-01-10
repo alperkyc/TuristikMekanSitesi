@@ -1,0 +1,94 @@
+<link href="{{ asset('assets') }}/https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('assets') }}/fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('assets') }}/css/jquery-ui.css">
+<link rel="stylesheet" href="{{ asset('assets') }}/css/owl.carousel.min.css">
+<link rel="stylesheet" href="{{ asset('assets') }}/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="{{ asset('assets') }}/css/owl.theme.default.min.css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/css/jquery.fancybox.min.css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/css/bootstrap-datepicker.css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/fonts/flaticon/font/flaticon.css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/css/aos.css">
+<link href="{{ asset('assets') }}/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="{{ asset('assets') }}/css/style.css">
+
+<div class="card card-primary">
+
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form" name="image" action="{{ path('user_image_new',{'id' : id }) }}" method="post" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="exampleInputEmail1">Resim Başlık</label>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" id="image_title" name="image[title]" maxlength="50">
+                    <input type="hidden" id="image_hotel" name="image[place]" class="form-control" value="{{ id }}">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="exampleInputEmail1">Galery Image</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input class="custom-file-input" type="file" id="image_image" name="image[image]">
+                            <label class="custom-file-label" for="exampleInputEmail1">Choose File</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Resim Başlık</th>
+            <th>Image</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.title }}</td>
+                <td><img src="{{ asset('uploads/images/'~ image.image) }}" height="60"></td>
+                <td>
+                    <form method="post" action="{{ path('user_image_delete', {'id': image.id,'pid':id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

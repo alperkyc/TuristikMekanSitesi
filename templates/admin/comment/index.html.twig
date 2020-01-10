@@ -1,0 +1,88 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Comment index{% endblock %}
+
+{% block body %}
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Yorumlar</h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <ul class="nav navbar-right panel_toolbox">
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subject</th>
+                <th>Comment</th>
+                <th>Status</th>
+                <th>Ip</th>
+                <th>User</th>
+                <th>Place</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Rate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.subject }}</td>
+                <td>{{ comment.comment }}</td>
+                <td>{{ comment.status }}</td>
+                <td>{{ comment.ip }}</td>
+                <td><a href="{{ path('admin_user_show', {'id': comment.userid}) }}" class="btn-primary">{{ comment.name }} {{ comment.surname }}</a></td>
+                <td><a href="{{ path('admin_place_show', {'id': comment.placeid}) }}" class="btn-success">{{ comment.title }}</td>
+                <td>{{ comment.created_at}}</td>
+                <td>{{ comment.updated_at}}</td>
+                <td>{{ comment.rate }}</td>
+                <td>
+                    <a href="{{ path('admin_comment_show', {'id': comment.id}) }}" class="btn btn-round btn-primary">show</a>
+                    <a href="{{ path('admin_comment_edit', {'id': comment.id}) }}" class="btn btn-round btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_comment_new') }}" class="btn btn-round btn-success">Create new</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

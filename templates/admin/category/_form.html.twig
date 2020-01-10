@@ -1,0 +1,63 @@
+
+
+<div class="card card-primary">
+
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form name="category" role="form" method="post">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Üst Kategori</label>
+                <select id="category_parentid" name="category[parentid]" class="form-control">
+
+                    <option value="0">Main Category</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat.id }}" {{ cat.id==category.parentid ? 'Selected': '' }}>{{ cat.title }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Category Name</label>
+                <input type="text" name="category[title]" class="form-control" id="category_title" value="{{ category.title }}" required="required">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Description</label>
+                <input type="text" name="category[description]" class="form-control" id="category_description" value="{{ category.description }}" >
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Category Keywords</label>
+                <input type="text" name="category[keywords]" class="form-control" id="category_keywords" value="{{ category.keywords }}" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Status</label>
+                <select id="category_status" name="category[status]" class="form-control">
+
+                    <option>{{ category.status }}</option>
+                    <option>True</option>
+                    <option>False</option>
+                </select>
+            </div>
+            {#<div class="form-group">
+                <label for="exampleInputFile">Image</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" name="category[image]" class="custom-file-input" id="category_image">
+                        <label class="custom-file-label" for="category_image">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                    </div>
+                </div>
+            </div>#}
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>

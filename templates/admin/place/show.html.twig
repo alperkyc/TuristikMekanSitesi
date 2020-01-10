@@ -1,0 +1,120 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Place{% endblock %}
+
+{% block body %}
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Place Detayı</h3>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_content">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ place.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <td>{{ place.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Keywords</th>
+                                    <td>{{ place.keywords }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ place.description }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Detail</th>
+                                    <td>{{ place.detail | raw }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Image</th>
+                                    <td><img src="{{ asset('uploads/images/'~ place.image) }}" ></td>
+                                </tr>
+                                <tr>
+                                    <th>Star</th>
+                                    <td>{{ place.star }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Adress</th>
+                                    <td>{{ place.adress }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>{{ place.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fax</th>
+                                    <td>{{ place.fax }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ place.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>City</th>
+                                    <td>{{ place.city }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Country</th>
+                                    <td>{{ place.country }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Location</th>
+                                    <td>{{ place.location }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ place.status }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Created_at</th>
+                                    <td>{{ place.createdAt ? place.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Updated_at</th>
+                                    <td>{{ place.updatedAt ? place.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('admin_place_index') }}" class="btn btn-primary">back to list</a>
+
+                            <a href="{{ path('admin_place_edit', {'id': place.id}) }}" class="btn btn-success">edit</a>
+
+                            {{ include('admin/place/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+
+{% endblock %}

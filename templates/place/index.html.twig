@@ -1,0 +1,144 @@
+{% extends 'homebase.html.twig' %}
+
+            {% block title %}{{app.user.name }} Profile{% endblock %}
+
+            {% block body %}
+                <SCRIPT language="JavaScript" type="text/javascript">
+                    function openWin(windowUrl,windowName,windowFeatures) { window.open(windowUrl,windowName,windowFeatures);}
+                </SCRIPT>
+                {{  include('user/usermenu.html.twig')}}
+                <div class="container">
+                    <div class="row profile">
+                        <div class="col-md-3">
+                            <div class="profile-sidebar">
+                                <!-- SIDEBAR USERPIC -->
+                                <div class="profile-userpic">
+                                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
+                                         class="img-responsive" alt="">
+                                </div>
+                                <!-- END SIDEBAR USERPIC -->
+                                <!-- SIDEBAR USER TITLE -->
+                                <div class="profile-usertitle">
+                                    <img src="{{ asset('uploads/images/'~ app.user.image) }}" height="80px">
+                                    <div class="profile-usertitle-name">
+                                        {{ app.user.name }} {{ app.user.surname }}
+                                    </div>
+
+                                </div>
+                                <!-- END SIDEBAR USER TITLE -->
+                                <!-- SIDEBAR BUTTONS -->
+                                <div class="profile-userbuttons">
+                                    <button type="button" class="btn btn-success btn-sm">Follow</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Message</button>
+                                </div>
+                                <!-- END SIDEBAR BUTTONS -->
+                                <!-- SIDEBAR MENU -->
+                                <div class="profile-usermenu">
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="/user/">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                                My Profile </a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/places">
+                                                <i class="glyphicon glyphicon-home"></i>
+                                                My Places </a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/comments">
+                                                <i class="glyphicon glyphicon-comment"></i>
+                                                My Comments</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="glyphicon glyphicon-flag"></i>
+                                                Contact </a>
+                                        </li>
+                                        <li>
+                                            <a href="/logout">
+                                                <i class="glyphicon glyphicon-log-out"></i>
+                                                Logout </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END MENU -->
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+
+
+                            <h1>User Place List</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            {#<th>Keywords</th>
+            <th>Description</th>#}
+            <th>Image</th>
+            <th>Star</th>
+            <th>Adress</th>
+            {#<th>Phone</th>#}
+            {#<th>Fax</th>#}
+            <th>Email</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>I.Galery</th>
+            {#<th>Location</th>#}
+            <th>Status</th>
+            {#<th>Created_at</th>
+            <th>Updated_at</th>#}
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for place in places %}
+            <tr>
+                <td>{{ place.id }}</td>
+                <td>{{ place.title }}</td>
+                {#<td>{{ place.keywords }}</td>
+                <td>{{ place.description }}</td>#}
+                <td><img src="{{ asset('uploads/images/'~ place.image) }}" height="20"></td>
+                <td>{{ place.star }}</td>
+                <td>{{ place.adress }}</td>
+                {#<td>{{ place.phone }}</td>#}
+                {#<td>{{ place.fax }}</td>#}
+                <td>{{ place.email }}</td>
+                <td>{{ place.city }}</td>
+                <td>{{ place.country }}</td>
+                <td><a href="javascript:openWin('{{ path('user_image_new',{'id':place.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                        <img src="{{ asset('assets/admin/img') }}/gallery.png" height="30">
+                    </a> </td>
+                {#<td>{{ place.location }}</td>#}
+                <td>{{ place.status }}</td>
+                {#<td>{{ place.createdAt ? place.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ place.updatedAt ? place.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                <td>
+                    <a href="{{ path('user_place_show', {'id': place.id}) }}" class="btn btn-primary">Göster</a>
+                    <a href="{{ path('user_place_edit', {'id': place.id}) }}" class="btn btn-danger">Düzenle</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="17">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+                <a href="{{ path('user_place_new') }}" class="btn btn-success">Create new</a>
+
+
+
+        </div>
+    </div>
+</div>
+
+    <br>
+    <br>
+
+{% endblock %}
+
+

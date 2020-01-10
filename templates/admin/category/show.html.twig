@@ -1,0 +1,102 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+
+
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>KATEGORİLER</h3>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Kategori Bilgileri</h2>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ category.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Parentid</th>
+                                    <td><select id="category_parentid"  name="category[parentid]" class="form-control">
+
+                                            <option value="0">Main Category</option>
+                                            {% for cat in categories %}
+                                                <option value="{{ cat.id }}" {{ cat.id==category.parentid ? 'Selected': '' }}>{{ cat.title }}</option>
+                                            {% endfor %}
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <td>{{ category.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Keywords</th>
+                                    <td>{{ category.keywords }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ category.description }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Image</th>
+                                    <td>{{ category.image }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ category.status }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Created_at</th>
+                                    <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Updated_at</th>
+                                    <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('category_index') }}" class="btn btn-primary">back to list</a>
+
+                            <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-success">edit</a>
+
+                            {{ include('admin/category/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+
+
+{% endblock %}
+
+

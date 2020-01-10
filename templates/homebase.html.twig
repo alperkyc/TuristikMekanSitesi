@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% block description %}En iyi turistik mekan sitesi{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}tatil,hotels,beach,turizm{% endblock %}">
+    <meta name="author" content="NereyeGitmeliyim.com">
+    {% block head %}{{ include('home/head.html.twig') }}{% endblock %}
+    {% block stylesheet %}{% endblock %}
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+</div>
+<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
+{% block header %}{{ include('home/header.html.twig') }}{% endblock %}
+{% block sidebar %}{% endblock %}
+{% block slider %}{% endblock %}
+
+{% block body %}{% endblock %}
+{% block footer %}{{ include('home/footer.html.twig') }}{% endblock %}
+{% block javascripts %}{{ include('home/javascripts.html.twig') }}{% endblock %}
+
+</body>
+</html>

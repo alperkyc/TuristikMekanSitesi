@@ -1,0 +1,66 @@
+{% extends 'homebase.html.twig' %}
+{% block title %}{{data[0].title}}{% endblock %}
+{% block keywords %}{{data[0].keywords}}{% endblock %}
+{% block description %}{{data[0].description}}{% endblock %}
+
+{% block body %}
+
+    {{ include('home/contact2.html.twig') }}
+
+    <div class="site-section">
+        <div class="container">
+            {#<form name="messages" method="post">
+                <div id="messages"><div class="form-group"><label for="messages_firstname">Firstname</label><input type="text" id="messages_firstname" name="messages[firstname]" maxlength="30" class="form-control" /></div><div class="form-group">
+                        <label for="messages_surname">Surname</label>
+                        <input type="text" id="messages_surname" name="messages[surname]" maxlength="30" class="form-control" />
+                    </div><div class="form-group"><label for="messages_email">Email</label><input type="text" id="messages_email" name="messages[email]" maxlength="255" class="form-control" /></div><div class="form-group"><label for="messages_phone">Phone</label>
+                        <input type="text" id="messages_phone" name="messages[phone]" maxlength="30" class="form-control" /></div><div class="form-group">
+                        <label for="messages_message">Message</label><textarea id="messages_message" name="messages[message]" class="form-control"></textarea></div><div class="form-group"><label for="messages_status">Status</label><input type="text" id="messages_status" name="messages[status]" maxlength="10" class="form-control" /></div><div class="form-group"><label for="messages_ip">Ip</label><input type="text" id="messages_ip" name="messages[ip]" maxlength="15" class="form-control" /></div><div class="form-group"><label for="messages_note">Note</label><input type="text" id="messages_note" name="messages[note]" maxlength="255" class="form-control" /></div>
+                    <input type="hidden" id="messages__token" name="messages[_token]" value="Am96Ce6MaiTvsVVLRVKEPuuuTIBYjZFdouzQZSoai0w" /></div>
+                <button class="btn btn-success">Save</button>
+            </form>#}
+            {{ include('messages.html.twig') }}
+            <form name="messages" method="post">
+            <div class="row">
+                <div class="col-md-6 form-group">
+
+                    <label for="fname">First Name</label>
+                    <input type="text" id="messages_firstname" name="messages[firstname]" class="form-control form-control-lg">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="messages_surname" name="messages[surname]" class="form-control form-control-lg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="eaddress">Email Address</label>
+                    <input type="text" id="messages_email"  name="messages[email]" class="form-control form-control-lg">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="tel">Tel. Number</label>
+                    <input type="text" id="messages_phone" name="messages[phone]" class="form-control form-control-lg">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <label for="message">Message</label>
+                    <textarea id="messages_message" name="messages[message]" cols="30" rows="10"  class="form-control"></textarea>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    {#<input type="hidden" id="messages__token" name="messages[_token]" value="Am96Ce6MaiTvsVVLRVKEPuuuTIBYjZFdouzQZSoai0w" />#}
+                    <input type="hidden"  name="token" value="{{ csrf_token('form-messeage') }}" />
+                    <input type="submit" value="Send Message" class="btn btn-primary btn-lg px-5">
+                </div>
+
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

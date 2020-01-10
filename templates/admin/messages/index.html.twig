@@ -1,0 +1,93 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Contact From Messages{% endblock %}
+
+{% block body %}
+<SCRIPT language="JavaScript" type="text/javascript">
+    function openWin(windowUrl,windowName,windowFeatures) { window.open(windowUrl,windowName,windowFeatures);}
+</SCRIPT>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Contact From Messages</h3>
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <ul class="nav navbar-right panel_toolbox">
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Ip</th>
+                <th>Note</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.firstname }}</td>
+                <td>{{ message.surname }}</td>
+                <td>{{ message.email }}</td>
+                <td>{{ message.phone }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.status }}</td>
+                <td>{{ message.ip }}</td>
+                <td>{{ message.note }}</td>
+                <td>{{ message.createdAt ? message.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ message.updatedAt ? message.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_messages_show', {'id': message.id}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('admin_messages_edit', {'id': message.id}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_messages_new') }}" class="btn btn-success">Create new</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

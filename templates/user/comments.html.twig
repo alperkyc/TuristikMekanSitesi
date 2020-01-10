@@ -1,0 +1,117 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{app.user.name }} Comments{% endblock %}
+
+{% block body %}
+    {{  include('user/usermenu.html.twig')}}
+    <div class="container">
+        <div class="row profile">
+            <div class="col-md-3">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
+                             class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <img src="{{ asset('uploads/images/'~ app.user.image) }}" height="80px">
+                        <div class="profile-usertitle-name">
+                            {{ app.user.name }} {{ app.user.surname }}
+                        </div>
+
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-danger btn-sm">Message</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li>
+                                <a href="/user/">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    My Profile </a>
+                            </li>
+                            <li>
+                                <a href="/user/places">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                    My Places </a>
+                            </li>
+                            <li>
+                                <a href="/user/comments">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                    My Comments</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                    Contact </a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                    Logout </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="profile-content">
+                    <h1>User Comments</h1>
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+                            <th>Subject</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>Place</th>
+                            <th>Created_at</th>
+                            <th>Rate</th>
+                            <th>Actions</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for comment in comments %}
+                            <tr>
+
+                                <td>{{ comment.subject }}</td>
+                                <td>{{ comment.comment }}</td>
+                                <td>{{ comment.status }}</td>
+                                <td><a href="{{ path('place_show', {'id': comment.placeid}) }}">{{ comment.title }}</td>
+                                <td>{{ comment.created_at}}</td>
+                                <td>{{ comment.rate }}</td>
+                                <td><a href="/user/comments/{{ comment.id }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+                                {#<td><button href="/user/comments/{{ comment.id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button></td>#}
+
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="10">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Place index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowUrl,windowName,windowFeatures) { window.open(windowUrl,windowName,windowFeatures);}
+    </SCRIPT>
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Place Listesi</h3>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+
+                            <ul class="nav navbar-right panel_toolbox">
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    {#<th>Keywords</th>
+                                    <th>Description</th>#}
+                                    <th>Image</th>
+                                    <th>Star</th>
+                                    <th>Adress</th>
+                                    <th>Phone</th>
+                                    {#<th>Fax</th>#}
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                    <th>I.Galery</th>
+                                    {#<th>Location</th>#}
+                                    <th>Status</th>
+                                    <th>Ekleyen</th>
+                                    {#<th>Created_at</th>
+                                    <th>Updated_at</th>#}
+                                    <th>actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for place in places %}
+                                    <tr>
+                                        <td>{{ place.id }}</td>
+                                        <td>{{ place.catname }}</td>
+                                        <td>{{ place.title }}</td>
+                                        {#<td>{{ place.keywords }}</td>
+                                        <td>{{ place.description }}</td>#}
+                                        <td><img src="{{ asset('uploads/images/'~ place.image) }}" height="40"></td>
+                                        <td>{{ place.star }}</td>
+                                        <td>{{ place.adress }}</td>
+                                        <td>{{ place.phone }}</td>
+                                        {#<td>{{ place.fax }}</td>#}
+                                        <td>{{ place.email }}</td>
+                                        <td>{{ place.city }}</td>
+                                        <td>{{ place.country }}</td>
+                                        <td><a href="javascript:openWin('{{ path('admin_image_new',{'id':place.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                            <img src="{{ asset('assets/admin/img') }}/gallery.png" height="40">
+                                        </a> </td>
+                                        {#<td>{{ place.location }}</td>#}
+                                        <td>{{ place.status }}</td>
+                                        {#<td>{{ place.createdAt ? place.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                        <td>{{ place.updatedAt ? place.updatedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                                        <td><a href="{{ path('admin_user_show', {'id': place.userid}) }}" class="btn-primary">{{ place.username }} {{ place.usersurname }}</a></td>
+                                        <td>
+                                            <a href="{{ path('admin_place_show', {'id': place.id}) }}" class="btn btn-primary">Göster</a>
+                                            <a href="{{ path('admin_place_edit', {'id': place.id}) }}" class="btn btn-danger">Düzenle</a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="17">no records found</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('admin_place_new') }}" class="btn btn-success">Create new</a>
+
+
+
+{% endblock %}
