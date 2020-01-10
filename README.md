@@ -13,6 +13,7 @@ Php Symfony ile yapmış olduğum user ve admin yönetim panelli Turistik Mekan 
     <li>Kullanıcı Mekan Ekleme</li>
     <li>Iletişim Formu Sonrası Mail Gönderim</li>
     <li>Image Gallery</li>
+   <li>ve Daha Fazlası..</li>
   
   
    </ul>
