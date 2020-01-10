@@ -5,9 +5,8 @@ Php Symfony ile yapmış olduğum user ve admin yönetim panelli Turistik Mekan 
 <h2>Anasayfa Görünüm</h2>
 <img src="https://i.hizliresim.com/p5Zn7J.png" />
 
-<br/>
-<br/>
-
+<br>
+<br>
 <img src="https://i.hizliresim.com/5N5arD.png" />
 
 
