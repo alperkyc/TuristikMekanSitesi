@@ -16,3 +16,17 @@ Php Symfony ile yapmış olduğum user ve admin yönetim panelli Turistik Mekan 
 <br>
 <img src="https://i.hizliresim.com/M1nVY2.png" />
 
+<h2>Mekan Bilgilendirme Ekranı</h2>
+
+<img src="https://i.hizliresim.com/jqkgzj.png" />
+
+<h2>User Panel</h2>
+<img src="https://i.hizliresim.com/XbQM2j.png" />
+<br>
+<br>
+<img src="https://i.hizliresim.com/AORDZr.png" />
+
+<h2>Contact</h2>
+<img src="https://i.hizliresim.com/Or1vJP.png" />
+
+
